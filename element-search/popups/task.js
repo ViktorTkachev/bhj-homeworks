@@ -9,10 +9,8 @@ btnSuccess.onclick = () => {
   successPopup.className = 'modal modal_active';
 }
 
-
 const closePopup = document.querySelectorAll('.modal__close');
-
-Array.from(closePopup, (index) => index.onclick = function() {
+Array.from(closePopup, (index) => index.onclick = () => {
   mainPopup.className = 'modal';
   successPopup.className = 'modal';
 })

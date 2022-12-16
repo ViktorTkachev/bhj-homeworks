@@ -1,8 +1,11 @@
 const linkMenu = document.querySelectorAll('.menu__link');
-// console.log(linkMenu);
 
-
-linkMenu.forEach((i) => i.onclick = function() {
-  console.log(i.closest('.menu_sub'))
-  // item.closest('.menu_sub').classList.contains('menu_active') ? item.closest('.menu_sub').className = 'menu menu_sub' : item.closest('.menu_sub').className = 'menu menu_sub menu_active';
-});
+Array.from(linkMenu, item => item.onclick = () => {
+  const menuSub = item.closest('.menu__item').querySelector('.menu_sub');
+  if(menuSub != null && menuSub.classList.contains('menu_active')) {
+    menuSub.className = 'menu menu_sub';
+  } else {
+    menuSub.className = 'menu menu_sub menu_active';
+  }
+  return false;
+})

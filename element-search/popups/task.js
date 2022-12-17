@@ -7,6 +7,7 @@ const successPopup = document.getElementById('modal_success'),
 btnSuccess = document.querySelector('.show-success');
 btnSuccess.onclick = () => {
   successPopup.className = 'modal modal_active';
+  mainPopup.className = 'modal'
 }
 
 const closePopup = document.querySelectorAll('.modal__close');

@@ -1,14 +1,12 @@
-const reveal = document.querySelector('.reveal');
+const reveal = document.querySelectorAll('.reveal');
 
-function isVisible (element) {
-  const { top, bottom } = element.getBoundingClientRect();
-  if (bottom < 0 || top > window.innerHeight) {
-    reveal.className = 'reveal';
-  } else {
-    reveal.className = 'reveal reveal_active';
+window.addEventListener('scroll', () => {
+  for (var item of reveal) {
+    const { top, bottom } = item.getBoundingClientRect();
+    if (bottom < 0 || top > window.innerHeight) {
+      item.className = 'reveal';
+    } else {
+      item.className = 'reveal reveal_active';
+    }
   }
-}
-
-setInterval(() => {
-  isVisible(reveal);
-}, 1000)
+});

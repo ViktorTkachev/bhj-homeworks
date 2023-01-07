@@ -11,7 +11,7 @@ function getCurrentTime() {
 }
 
 inputMessage.addEventListener('change', () => {
-  if (addMessages.value) {
+  if (addMessages.value !== '') {
     addMessages.innerHTML += `
       <div class="message message_client">
         <div class="message__time">${getCurrentTime()}</div>

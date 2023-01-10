@@ -13,17 +13,17 @@ function getCurrentTime() {
 inputMessage.addEventListener('change', () => {
   if (inputMessage.value == '') {
     return false;
-  } else {
+  } else if (inputMessage.value.trim() !== '') {
     addMessages.innerHTML += `
       <div class="message message_client">
         <div class="message__time">${getCurrentTime()}</div>
         <div class="message__text">
-          ${inputMessage.value}
+          ${inputMessage.value.trim()}
         </div>
       </div>
     `;
   }
-
+  inputMessage.value = '';
   setTimeout(robbotMessage, 1000);
 })
 

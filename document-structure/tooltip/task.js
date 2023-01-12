@@ -9,9 +9,14 @@ Array.from(tooltips, item => item.onclick = () => {
     tooltipElem.className = 'tooltip tooltip_active';
     tooltipElem.innerHTML = tooltipHtml;
     item.insertAdjacentElement('afterend', tooltipElem);
+  } else if (tooltipElem.textContent === tooltipHtml) {
+    tooltipElem.remove();
   } else {
     tooltipElem.remove();
-    return tooltipElem = false;
+    tooltipElem = document.createElement('div');
+    tooltipElem.className = 'tooltip tooltip_active';
+    tooltipElem.innerHTML = tooltipHtml;
+    item.insertAdjacentElement('afterend', tooltipElem);
   }
   // спозиционируем tooltip снизу от аннотируемого элемента
   let coords = item.getBoundingClientRect();

@@ -10,8 +10,7 @@ Array.from(tooltips, item => item.onclick = () => {
   let top = coords.bottom;
 
   if (tooltipElem.textContent === tooltipHtml) {
-    tooltipElem.classList.toggle('tooltip');
-    return;
+    tooltipElem.classList.toggle('tooltip_active');
   } else {
     tooltipElem.textContent = tooltipHtml;
     tooltipElem.classList.add('tooltip_active');

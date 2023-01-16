@@ -2,8 +2,8 @@ const xhr = new XMLHttpRequest();
 const loader = document.getElementById('loader');
 const items = document.getElementById('items');
 
-xhr.addEventListener('readystatechange', () => {
-  if (xhr.readyState === xhr.DONE) {
+xhr.addEventListener('load', () => {
+  if (xhr.readyState === xhr.DONE && xhr.status == 200) {
     loader.className = 'loader';
     let obj = JSON.parse(xhr.response);
     Object.values(obj.response.Valute).forEach((item) => {
@@ -16,7 +16,7 @@ xhr.addEventListener('readystatechange', () => {
      `);
    });
 
-  }
+ }
 });
 
 xhr.open('GET', 'https://students.netoservices.ru/nestjs-backend/slow-get-courses');
